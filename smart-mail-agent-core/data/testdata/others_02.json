@@ -1,6 +1,0 @@
-{
-  "subject": "Test",
-  "body": "asdf1234 ?? ??",
-  "expected_category": "其他",
-  "expected_summary": "郵件內容無法識別，歸入其他類別。"
-}

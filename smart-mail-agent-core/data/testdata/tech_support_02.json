@@ -1,9 +1,0 @@
-{
-  "subject": "登入錯誤與截圖",
-  "body": "您好：\n我在使用貴服務時遇到錯誤。系統一直出現未知錯誤訊息，詳情請見附件截圖。\n謝謝。",
-  "expected_category": "技術支援",
-  "expected_summary": "用戶遇到系統錯誤（有提及附件），尋求技術支援。",
-  "attachments": [
-    "error_screenshot.png"
-  ]
-}
