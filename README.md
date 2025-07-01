@@ -131,7 +131,7 @@ smart-mail-agent-core/
 
 ```
 smart-mail-agent-core/
-├── results/
+├── outputs/
 │   └── roberta-zh-checkpoint/
 │       ├── config.json
 │       ├── model.safetensors
