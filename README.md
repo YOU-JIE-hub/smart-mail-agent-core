@@ -159,7 +159,7 @@ IMAP_SERVER=imap.gmail.com
 # 回信預設收件者（測試用）
 REPLY_TO=your_email@gmail.com
 
-# Slack 警報 Webhook
+# Slack
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/xxx/yyy/zzz
 
 # 錯誤通知 Email（擴充用）
