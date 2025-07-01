@@ -175,8 +175,8 @@ ALERT_EMAIL_TO=devops@example.com
 ## 安裝流程
 
 ```bash
-python3 -m venv .venv1
-source .venv1/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
