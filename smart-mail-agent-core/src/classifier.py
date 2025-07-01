@@ -15,8 +15,8 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassifica
 
 # 載入 fine-tuned 分類模型
 MODEL_PATH = "outputs/roberta-zh-checkpoint"
-tokenizer  = AutoTokenizer.from_pretrained(MODEL_PATH)
-model      = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, local_files_only=True)
+model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH, local_files_only=True)
 clf        = pipeline("text-classification", model=model, tokenizer=tokenizer)
 
 # fallback 關鍵詞與正規表達式（報價 / 負面情緒）
