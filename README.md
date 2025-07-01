@@ -5,7 +5,6 @@
 ## 專案介紹
 
 本系統結合 NLP、RAG、RPA 等技術，自動分類、摘要及智慧處理中文郵件，支援自動回信、報價單產出、投訴道歉信等多項功能。
-適合 AI / RPA 工程師求職展示，提供完整實務能力證明。
 
 ---
 
@@ -14,8 +13,8 @@
 ```
 smart-mail-agent-core/
 ├── .env.example             # 環境變數範例（請依此建立 .env）
-├── README.md                # 專案說明文件（本檔）
-├── requirements.txt         # Python 相依套件列表
+├── README.md               
+├── requirements.txt         # Python 套件列表
 ├── scripts/
 │   ├── db_init.py           # 資料庫初始化腳本
 │   ├── generate_testdata.py # 自動產生測試郵件資料
