@@ -14,7 +14,7 @@
 
 特色:
 1. 使用自訓練 RoBERTa 中文分類模型
-2. 加入 RAG 結合 LangChain 提供智慧回覆
+2. 整合 ChatGPT API + LangChain RAG，針對 FAQ 自動回答信件問題
 3. 自動產出 PDF 報價單、資料異動草稿、客服道歉信等對應動作
 4. 全流程自動記錄 log、分類結果、處理時間、動作歷程
 5. 完整資料庫整合與 SQLite 快速部署
