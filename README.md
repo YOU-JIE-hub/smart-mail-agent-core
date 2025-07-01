@@ -1,0 +1,1 @@
+# smart-mail-agent-core
