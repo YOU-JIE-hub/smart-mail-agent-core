@@ -14,7 +14,7 @@ from typing import Dict
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 
 # 載入 fine-tuned 分類模型
-MODEL_PATH = "outputs/roberta-zh-checkpoint"
+MODEL_PATH = "results/outputs/roberta-zh-checkpoint"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, local_files_only=True)
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH, local_files_only=True)
 clf        = pipeline("text-classification", model=model, tokenizer=tokenizer)
