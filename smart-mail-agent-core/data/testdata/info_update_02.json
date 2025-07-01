@@ -1,0 +1,6 @@
+{
+  "subject": "更正帳戶地址資訊",
+  "body": "To whom it may concern,\n我在帳戶上的郵寄地址有誤，想請求協助更正。\n目前地址：台北市中正區XX路1號\n正確地址：台北市中山區YY路99號\n謝謝。",
+  "expected_category": "申請修改資訊",
+  "expected_summary": "客戶要求更正帳戶的郵寄地址資訊。"
+}

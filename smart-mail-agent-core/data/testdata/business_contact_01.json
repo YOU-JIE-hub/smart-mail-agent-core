@@ -1,0 +1,6 @@
+{
+  "subject": "詢問合作與服務報價",
+  "body": "您好，\n我們是ABC公司，對貴公司的產品很感興趣，想進一步了解企業合作方案和服務報價。如有相關資訊，請提供給我們，謝謝！\nBest Regards,\nABC Co.",
+  "expected_category": "業務接洽",
+  "expected_summary": "企業客戶詢問合作方案及服務報價。"
+}
