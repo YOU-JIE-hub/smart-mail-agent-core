@@ -127,7 +127,7 @@ smart-mail-agent-core/
 
 [[https://drive.google.com/drive/folders/1M4-A1uaNFcfHG72tLBvwaGYVZ0s9F2jH?usp=sharing](https://drive.google.com/drive/folders/1CX5rS5-HvKiMGBeiHmuRtcszyXotpAGB?usp=sharing)]
 
-下載後，請將整個 `results` 資料夾放置於專案根目錄下，確保目錄結構如下：
+下載後，請將整個 `outputs` 資料夾放置於專案根目錄下，確保目錄結構如下：
 
 ```
 smart-mail-agent-core/
