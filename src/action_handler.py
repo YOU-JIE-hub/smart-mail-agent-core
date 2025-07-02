@@ -1,16 +1,12 @@
 #!/usr/bin/env python
 # src/action_handler.py
-# ─────────────────────────────────────────────────────────
 # 根據分類結果 label，觸發對應自動處理模組；最後把耗時寫進 stats.db
-# ─────────────────────────────────────────────────────────
 
 import argparse, json, subprocess, tempfile, os, time, importlib
 from utils.logger import logger
 from stats_collector import increment_counter
 import log_result as lr
 
-
-# ──────────────────────────────────────────
 def route_action(label: str, data: dict) -> None:
     """根據 predicted_label 觸發相應動作"""
     subject = data.get("subject", "")
@@ -20,7 +16,6 @@ def route_action(label: str, data: dict) -> None:
 
     start = time.time()
 
-    # — 1. 技術支援 ─────────────────────────────
     if label == "請求技術支援":
         logger.info("分類為『請求技術支援』，建立工單")
         subprocess.run(
@@ -28,7 +23,7 @@ def route_action(label: str, data: dict) -> None:
              "--subject", subject, "--content", body, "--summary", summary],
             check=True)
 
-    # — 2. 詢問規則 → RAG 回覆 ──────────────────
+    # 詢問規則 → RAG 回覆
     elif label == "詢問流程或規則":
         logger.info("分類為『詢問流程或規則』，啟動 RAG 回覆")
         subprocess.run(
@@ -44,7 +39,6 @@ def route_action(label: str, data: dict) -> None:
              "--mode", "send", "--recipient", sender, "--html"],
             check=True)
 
-    # — 3. 更新資料 ─────────────────────────────
     elif label == "申請修改資訊":
         logger.info("分類為『申請修改資訊』，產出 diff 並更新資料庫")
         subprocess.run(
@@ -57,13 +51,11 @@ def route_action(label: str, data: dict) -> None:
              "--draft", "data/output/diff_draft.json", "--db", "data/users.db"],
             check=True)
 
-    # — 4. 投訴 ────────────────────────────────
     elif label == "投訴與抱怨":
         logger.info("分類為『投訴與抱怨』，啟動道歉回信流程")
         from handle_complaint import handle_complaint_action
         handle_complaint_action(data)
 
-    # — 5. 業務接洽／報價 ────────────────────────
     elif label == "業務接洽或報價":
         logger.info("分類為『業務接洽或報價』，產生報價單 / 或手動確認")
         from quote_selector import choose_package
@@ -98,17 +90,14 @@ def route_action(label: str, data: dict) -> None:
                 attachment_path=pdf_path,
             )
 
-    # — 6. 其他 → 只紀錄 log ─────────────────────
     else:
         logger.info("分類為『%s』，僅記錄 log", label)
         lr.log_email(subject, label, data.get("confidence", 0))
 
-    # — 統計耗時 ─────────────────────────────────
     elapsed = round(time.time() - start, 3)
     increment_counter(label, elapsed)
     logger.info("統計完成：%s (+1)，耗時 %.3fs", label, elapsed)
 
-# ──────────────────────────────────────────
 def main() -> None:
     ap = argparse.ArgumentParser(description="根據分類結果觸發動作")
     ap.add_argument("--json", required=True, help="分類結果 JSON 檔")
@@ -120,7 +109,6 @@ def main() -> None:
     label = data.get("predicted_label", "其他")
     logger.info("讀取分類結果：%s → %s", args.json, label)
     route_action(label, data)
-
 # ──────────────────────────────────────────
 if __name__ == "__main__":
     main()
