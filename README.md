@@ -244,3 +244,4 @@ PYTHONPATH=src python src/inference_classifier.py \
   --output data/output/classify_result.json
 ```
 請先確認你已完成分類模型訓練，模型儲存於：outputs/roberta-zh-checkpoint/
+若希望從主旨與內文直接推論，得先建立一個輸入 JSON 檔案
