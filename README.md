@@ -172,20 +172,50 @@ ALERT_EMAIL_TO=devops@example.com
 
 ---
 
-## 安裝流程
+## Clone 專案到本地
+
+```bash
+mkdir -p ~/workspace && cd ~/workspace
+git clone https://github.com/YOU-JIE-hub/smart-mail-agent-core.git
+cd smart-mail-agent-core
+```
+
+---
+
+## 安裝套件依賴
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
+
+---
+
+## 建立 .env 檔案
+
+```bash
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+GMAIL_USER=your@gmail.com
+GMAIL_PASS=your_app_password
+
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=465
+IMAP_SERVER=imap.gmail.com
+RECIPIENT=your@gmail.com
+
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/xxx/yyy/zzz
+ALERT_EMAIL_TO=devops@example.com
+```
+請務必修改為你自己的金鑰與帳號資訊。
 
 ---
 
 ## 初始化資料庫
 
 ```bash
-PYTHONPATH=src python scripts/db_init.py --reset
+PYTHONPATH=src python db_init.py --reset
 ```
 
 ---
@@ -193,7 +223,7 @@ PYTHONPATH=src python scripts/db_init.py --reset
 ## 產生測試資料
 
 ```bash
-python scripts/generate_testdata.py
+python generate_testdata.py
 ```
 
 ---
@@ -201,10 +231,8 @@ python scripts/generate_testdata.py
 ## 一鍵測試
 
 ```bash
-bash scripts/run_all_tests.sh
+bash run_all_tests.sh
 ```
-
----
 
 ## CLI 使用範例
 
