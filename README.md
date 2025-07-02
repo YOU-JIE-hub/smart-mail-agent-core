@@ -148,25 +148,25 @@ smart-mail-agent-core/
 請依照 `.env.example` 建立專屬於你的 `.env` 檔案，放置於專案根目錄（切勿上傳 GitHub）。
 
 ```dotenv
-# OpenAI API Key
-OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# OpenAI API 金鑰（用於 RAG 回覆模組）
+OPENAI_API_KEY=your-openai-api-key-here
 
-# Gmail SMTP 設定
-GMAIL_USER=your_email@gmail.com
-GMAIL_PASS=your_app_password
+# Gmail SMTP 發信帳號（需啟用「應用程式密碼」）
+GMAIL_USER=your-email@gmail.com
+GMAIL_PASS=your-app-password-here
+
+# SMTP/IMAP 設定
 SMTP_SERVER=smtp.gmail.com
 SMTP_PORT=465
-
-# IMAP 設定（可選，若啟用收信功能）
 IMAP_SERVER=imap.gmail.com
 
-# 回信預設收件者（測試用）
-REPLY_TO=your_email@gmail.com
+# 預設回信收件者（若未指定則回寄寄件人）
+RECIPIENT=default-reply@example.com
 
-# Slack
+# Slack 通知 Webhook（選填）
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/xxx/yyy/zzz
 
-# 錯誤通知 Email（擴充用）
+# 異常通知用 Email（選填）
 ALERT_EMAIL_TO=devops@example.com
 ```
 
