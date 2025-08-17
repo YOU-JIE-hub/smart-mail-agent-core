@@ -109,6 +109,6 @@ def main() -> None:
     label = data.get("predicted_label", "其他")
     logger.info("讀取分類結果：%s → %s", args.json, label)
     route_action(label, data)
-# ──────────────────────────────────────────
+
 if __name__ == "__main__":
     main()
